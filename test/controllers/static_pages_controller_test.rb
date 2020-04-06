@@ -2,9 +2,15 @@ require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
   test "should get root" do
-    get root_url
+    get root_path
     assert_response :success
     assert_select "title", "Menu Diary"
+  end
+
+  test "should get contact" do
+    get contact_path
+    assert_response :success
+    assert_select "title", "Contact|Menu Diary"
   end
 
   # test "should get help" do
