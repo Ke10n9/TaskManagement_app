@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_21_113657) do
+ActiveRecord::Schema.define(version: 2020_04_25_055522) do
+
+  create_table "menus", force: :cascade do |t|
+    t.string "menu_name"
+    t.string "category"
+    t.date "date"
+    t.string "time_zone"
+    t.text "memo"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "date", "time_zone"], name: "index_menus_on_user_id_and_date_and_time_zone"
+    t.index ["user_id"], name: "index_menus_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

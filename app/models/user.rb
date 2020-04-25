@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :menus, dependent: :destroy#ユーザー削除→メニュー削除
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
